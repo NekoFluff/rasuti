@@ -38,7 +38,12 @@ async fn main() {
     // env_logger::init();
 
     let options = poise::FrameworkOptions {
-        commands: vec![commands::help(), commands::getvotes()],
+        commands: vec![
+            commands::help(),
+            commands::ping(),
+            commands::vote(),
+            commands::getvotes(),
+        ],
         prefix_options: poise::PrefixFrameworkOptions {
             prefix: Some("~".into()),
             edit_tracker: Some(poise::EditTracker::for_timespan(Duration::from_secs(3600))),
