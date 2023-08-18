@@ -1,0 +1,6 @@
+version: '3.4'
+
+services:
+  rasuti:
+    image: nekofluff/rasuti
+    restart: always

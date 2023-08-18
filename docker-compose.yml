@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  rasuti:
+    image: rasuti
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      tags:
+        - "nekofluff/rasuti"
