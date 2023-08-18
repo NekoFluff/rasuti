@@ -19,7 +19,7 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: "Get tag"
         id: "pkg-version"
@@ -43,7 +43,7 @@ jobs:
           # changelog: CHANGELOG.md
           branch: "main"
           ref: refs/tags/v${{ needs.get-tag.outputs.pkg-version }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
   upload-assets:
     name: "Upload assets to Github releases"
@@ -70,7 +70,7 @@ jobs:
           target: ${{ matrix.target }}
           archive: $bin-${{ matrix.target }}
           ref: refs/tags/v${{ needs.get-tag.outputs.pkg-version }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
   push-to-registry:
     name: "Push Docker image to Docker Hub"

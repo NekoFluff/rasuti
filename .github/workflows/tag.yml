@@ -13,7 +13,7 @@ jobs:
       - name: "Check out the repo"
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: "Get tag"
         id: "get-tag"
