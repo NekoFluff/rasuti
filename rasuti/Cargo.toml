@@ -1,0 +1,9 @@
+[package]
+name = "rasuti"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.21.2", features = ["macros", "rt-multi-thread"] }
+poise = "0.5.4"
+dotenv = "0.15.0"
