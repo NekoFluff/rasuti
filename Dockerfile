@@ -1,5 +1,4 @@
 FROM rust:1.71 AS builder
-ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 COPY . .
 RUN cargo build --release
 

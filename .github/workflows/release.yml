@@ -72,8 +72,8 @@ jobs:
   #         ref: refs/tags/v${{ needs.get-tag.outputs.pkg-version }}
   #         token: ${{ secrets.GH_PAT }}
 
-  push-to-registry:
-    name: "Push Docker image to Docker Hub"
+  push-amd64-image-to-registry:
+    name: "Push AMD64 Docker image to Docker Hub"
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     needs:
       - "get-tag"
@@ -103,6 +103,6 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/amd64,linux/arm/v7
+          platforms: linux/amd64
           tags: nekofluff/rasuti:latest,nekofluff/rasuti:v${{ needs.get-tag.outputs.pkg-version }}
           labels: ${{ steps.meta.outputs.labels }}
