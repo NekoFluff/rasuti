@@ -1,6 +1,7 @@
-FROM rust:1.67 AS builder
+FROM rust:1.71 AS builder
+ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 COPY . .
-RUN --mount=type=tmpfs,target=/root/.cargo cargo build --release
+RUN cargo build --release
 
 FROM debian:buster-slim
 COPY --from=builder ./target/release/rasuti ./target/release/rasuti
