@@ -101,7 +101,7 @@ jobs:
       - name: "Build and push Docker image"
         uses: "docker/build-push-action@v3"
         env:
-          CARGO_REGISTRIES_CRATES_IO_PROTOCOL: sparse
+          CARGO_REGISTRIES_CRATES_IO_PROTOCOL: "sparse"
         with:
           context: .
           push: true
